@@ -1,11 +1,15 @@
 #include <stdio.h>
 
 int main(void){
-    int x;
-    x = 10;
+    int x = 10;
+    int *ponteiro;
+    ponteiro = &x;
 
-    printf("%d\n", x);
+    int y = 20;
+    *ponteiro = y;
 
-    getchar();
+    printf("%d %d\n", x, y);
+
+    
     return 0;
 }
