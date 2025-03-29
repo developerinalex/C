@@ -10,5 +10,10 @@ int main(void){
     double *pY = &y;
     char *pZ = &z;
 
-    
+    int *resultado;
+    resultado = &x;
+
+    printf("valor x = %i\n", resultado);
+
+    return 0;
 }
