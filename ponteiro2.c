@@ -2,18 +2,19 @@
 
 int main(void){
 
-    int x = 10;
+    static int x = 10;
     double y = 20.50;
     char z = 'a';
 
-    int *pX = &x;
-    double *pY = &y;
+    
+    double *pY;
+    pY = &y;
     char *pZ = &z;
 
     int *resultado;
     resultado = &x;
 
-    printf("valor x = %i\n", resultado);
+    printf("valor x = %p\n", (void*)resultado);
 
     return 0;
 }
