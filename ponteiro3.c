@@ -10,7 +10,8 @@ int main(){
     struct horario agora, *depois;
     depois = &agora;
 
-    depois->hora = 20;
+    depois->hora = 20; //ponteiro pra estrutura usa uma "seta" para atribuir, usar *depois.hora exibe um erro
+    //colocar (*depois).hora resolve, porém é mais trabalhoso e menos intuitivo 
     depois->minuto = 80;
     depois->segundo = 50;
 
