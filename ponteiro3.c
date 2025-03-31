@@ -11,9 +11,17 @@ int main(){
     depois = &agora;
 
     depois->hora = 20;
-    depois->minuto = 20;
-    depois->segundo = 20;
+    depois->minuto = 80;
+    depois->segundo = 50;
 
-    printf("%d:%d:%d\n", agora.hora, agora.minuto, agora.segundo);
+    int somatorio = 100;
+
+    struct horario antes;
+
+    antes.hora = somatorio + depois->segundo;
+    antes.minuto = agora.hora + depois->minuto;
+    antes.segundo = depois->minuto + depois->segundo;
+
+    printf("%d:%d:%d\n", antes.hora, antes.minuto, antes.segundo);
     return 0;
 }
