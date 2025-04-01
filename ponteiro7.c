@@ -1,11 +1,11 @@
 #include <stdio.h>
 
-struct lista{
+struct lista{             //um novo tipo de variavel 
     int valor;
-    struct lista *proximo;
+    struct lista *proximo;  //o tipo de variavel recebe um nome que é um ponteiro
 };
 
-struct lista *procurarValor(struct lista *pLista, int valor){
+struct lista *procurarValor(struct lista *pLista, int valor){   //função que possui a variavel lista como saída e recebe lista ponteiro como uma das entradas 
     while(pLista != (struct lista *)0){
         if(pLista->valor == valor){
             return(pLista);
@@ -19,16 +19,16 @@ struct lista *procurarValor(struct lista *pLista, int valor){
 
 int main(void){
 
-    struct lista *procurarValor(struct lista *pLista, int valor);
-    struct lista m1, m2, m3;
-    struct lista *resultado, *gancho = &m1;
+    struct lista *procurarValor(struct lista *pLista, int valor);  //chamamos a função 
+    struct lista m1, m2, m3;   //criamos 3 tipos de lista
+    struct lista *resultado, *gancho = &m1;  //criamos lista ponteiro resultado vazio e ponteiro gancho com valor 
     int valor;
 
-    m1.valor = 5;
+    m1.valor = 5;  //atribuimos m1 a o variavel valor que esta dentro de lista
     m2.valor = 10;
     m3.valor = 15;
 
-    m1.proximo = &m2;
+    m1.proximo = &m2;  //atribuimos m1 a variavel do tipo struct lista proximo com o endereço de m2 
     m2.proximo = &m3;
     m3.proximo = 0;
 
