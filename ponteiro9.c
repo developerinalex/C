@@ -3,7 +3,7 @@
 int somarVetor(int vetor[], const int n){
     int soma = 0;
     int *ponteiro;
-    int *const finalVetor = vetor + n;
+    int const *finalVetor = vetor + n;
 
     for(ponteiro = vetor; ponteiro < finalVetor; ++ponteiro){
         soma += *ponteiro;
