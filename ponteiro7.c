@@ -2,7 +2,7 @@
 
 struct lista{             //um novo tipo de variavel 
     int valor;
-    struct lista *proximo;  //o tipo de variavel recebe um nome que é um ponteiro
+    struct lista *proximo;  //o tipo de variavel recebe um nome que é um ponteiro - SÓ ARMAZENA ENDEREÇOS
 };
 
 struct lista *procurarValor(struct lista *pLista, int valor){   //função que possui a variavel lista como saída e recebe lista ponteiro como uma das entradas 
@@ -19,7 +19,6 @@ struct lista *procurarValor(struct lista *pLista, int valor){   //função que p
 
 int main(void){
 
-    struct lista *procurarValor(struct lista *pLista, int valor);  //chamamos a função 
     struct lista m1, m2, m3;   //criamos 3 tipos de lista
     struct lista *resultado, *gancho = &m1;  //criamos lista ponteiro resultado vazio e ponteiro gancho com valor 
     int valor;
