@@ -9,11 +9,6 @@ int main(void){
     printf("Digite um número de 1 a 10 para exibirmos a sua tabuada.\n");
     scanf("%d", &numero);
 
-    while(numero < 1 || numero > 10){
-        printf("Erro, digite um número válido.\n");
-        scanf("%d", &numero);
-    }
-
     tabuada(numero);
 
     getchar();
@@ -25,6 +20,10 @@ int tabuada(int n){
     char input;
     char *verificador = &input;
 
+    while(n < 1 || n > 10){
+        printf("Erro, digite um número válido.\n");
+        scanf("%d", &n);
+    }
 
     for(multiplicador = 0; multiplicador <= 10; multiplicador++){
         resultado = n * multiplicador;
