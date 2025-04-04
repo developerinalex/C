@@ -4,12 +4,12 @@ int tabuada(int n);
 
 int main(void){
 
-    int numero, contas;
+    int numero, conta;
 
     printf("Digite um número de 1 a 10 para exibirmos a sua tabuada.\n");
     scanf("%d", &numero);
 
-    contas = tabuada(numero);
+    conta = tabuada(numero);
 
     getchar();
     return 0;
