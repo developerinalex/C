@@ -3,17 +3,21 @@
 float registradora(float v);
 
 int main(void){
-    float valor;
+
+    float valor = 0.0;
 
     printf("Registrando contas.\n");
 
     registradora(valor);
 
+
+    getchar();
+    return 0;
 }
 
 float registradora(float v){
 
-    int produtos;
+    int produtos = 0;
     float pagamento = 0;
     float total = 0; 
     float troco = 0;
@@ -21,17 +25,25 @@ float registradora(float v){
     do{
         printf("Insira o valor: ");
         scanf("%f", &v);
-        produtos + 1;
-        total = total + v;
+        produtos++;
+        total += v;
+        if(v == 0){
+            produtos--;
+        }
     }while(v > 0);
+
+    printf("Qual o total a ser pago: ");
+    scanf("%f", &pagamento);
 
     troco = pagamento - total;
 
     if(v <= 0){
         printf("Quantidade de produtos: %d\n", produtos);
-        printf("Total em R$ da compra: %f\n", total);
-        printf("Valor pago pelo cliente: %f\n", pagamento);
-        printf("Troco: %f\n", troco);
+        printf("Total em R$ da compra: %.2f\n", total);
+        printf("Valor pago pelo cliente: %.2f\n", pagamento);
+        printf("Troco: %.2f\n", troco);
         printf("Fim do programa.\n");
     }
+
+    return 0;
 }
