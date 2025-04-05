@@ -25,15 +25,19 @@ float registradora(float v){
     do{
         printf("Insira o valor: ");
         scanf("%f", &v);
-        produtos++;
-        total += v;
-        if(v == 0){
-            produtos--;
+        if(v > 0){
+            produtos++;
+            total += v;
         }
     }while(v > 0);
 
-    printf("Qual o total a ser pago: ");
-    scanf("%f", &pagamento);
+    do {
+        printf("Qual o total a ser pago: ");
+        scanf("%f", &pagamento);
+        if (pagamento < total) {
+            printf("Valor insuficiente. Tente novamente.\n");
+        }
+    }while(pagamento < total);    
 
     troco = pagamento - total;
 
