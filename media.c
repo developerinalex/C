@@ -15,7 +15,7 @@ int main(void){
 }
 
 float media(float nota){
-    float notas[3];
+    float notas[3]; 
     int i = 0;
     float m = 0;
 
