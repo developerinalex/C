@@ -6,13 +6,20 @@ int main(void){
 
     int saque;
 
-    printf("Dísponivel apenas cédulas de 100, 50, 20, 10 e 5. Por favor, digite um valor que atenda a observção.\n");
+    printf("Disponível apenas cédulas de 100, 50, 20, 10 e 5.\n");
 
-    printf("Digite o valor de saque: ");
-    scanf("%d", &saque);
+    do{
+        printf("Digite o valor de saque: ");
+        scanf("%d", &saque);
+        if(saque < 5){
+            printf("Valor solicitado inválido.\n");
+        }
+    }while(saque < 5);
+    
 
     cedulas(saque);
 
+    while(getchar() != '\n');
     getchar();
     return 0;
 }
@@ -24,7 +31,7 @@ int cedulas(int valor){
     for(i = 0; i < 5; i++){
         int qtd = valor / notas[i];
         if(qtd > 0){
-            printf("%d notas de R$%d foram usadas.\n", qtd, notas[i]);
+            printf("%d nota%s de R$%d fo%s usada%s.\n", qtd, qtd == 1 ? "" : "s", notas[i], qtd == 1 ? "i" : "ram", qtd == 1 ? "" : "s");
         }
         valor %= notas[i];
         if(valor == 0){
