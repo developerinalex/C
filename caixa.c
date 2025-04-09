@@ -24,13 +24,14 @@ void login(void){
     do{
         printf("Digite sua senha: ");
         scanf("%d", &senha);
+        while(getchar() != '\n');
 
         if(senha == pin){
             menu();
             return;
         }
         
-        if(ttvs >= 0){
+        if(ttvs > 0){
             printf("Senha incorreta, %d tentativa%s restante%s.\n", ttvs, ttvs == 1 ? "" : "s", ttvs == 1 ? "" : "s");
         }
 
