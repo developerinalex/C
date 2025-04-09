@@ -19,7 +19,7 @@ void menu(void){
 
 void login(void){
     const int pin = 1234;
-    int senha, i, ttvs = 2;
+    int senha, i = 0, ttvs = 2;
 
     do{
         printf("Digite sua senha: ");
@@ -27,18 +27,18 @@ void login(void){
 
         if(senha == pin){
             menu();
-            break;
+            return;
         }
-        else if(i == 3){
-            printf("Operação encerrada, excedeu limite de tentativas.");
-        }
-        else{
+        
+        if(ttvs >= 0){
             printf("Senha incorreta, %d tentativa%s restante%s.\n", ttvs, ttvs == 1 ? "" : "s", ttvs == 1 ? "" : "s");
         }
 
         ttvs--;
         i++;
     }while(i < 3);
+
+    printf("Operação encerrada, excedeu limite de tentativas.");
 }
 
 int cedulas(int valor){
