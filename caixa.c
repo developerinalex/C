@@ -1,8 +1,12 @@
 #include <stdio.h>
 
 int cedulas(int valor);
+void login(void);
+void menu(void);
 
 int main(void){
+
+    login();
 
     int saque;
 
@@ -23,6 +27,33 @@ int main(void){
     getchar();
     return 0;
 }
+
+void menu(void){
+    printf("1. Sacar.\n");
+}
+
+void login(void){
+    const int pin = 1234;
+    int senha, i;
+
+    printf("Digite sua senha: ");
+    scanf("%d", &senha);
+
+    for(i = 0; i < 3; i++){
+        int ttvs = 2;
+        if(senha == pin){
+            menu();
+        }
+        else if(i = 3){
+            printf("Operação encerrada, excedeu limite de tentativas.");
+        }
+        else{
+            printf("Senha incorreta, %d tentativa%s restante%s.\n", ttvs, ttvs == 1 ? "" : "s", ttvs == 1 ? "" : "s");
+            ttvs--;
+        }
+    }
+}
+
 
 int cedulas(int valor){
     int notas[5] = {100, 50, 20, 10, 5};
