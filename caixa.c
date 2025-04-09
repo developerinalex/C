@@ -5,7 +5,7 @@ void login(void);
 void menu(void);
 
 int main(void){
-
+    menu();
     login();
 
     while(getchar() != '\n');
@@ -14,7 +14,10 @@ int main(void){
 }
 
 void menu(void){
-    printf("1. Sacar.\n");
+    puts("Bem-vindo ao caixa elerônico 2.0!");
+    puts("==================================\n");
+    printf("1. Sacar.\n2. Ver saldo.\n3. Ver extrato.\n4. Sair.\n");
+    printf("Digite sua opção: ");
 }
 
 void login(void){
