@@ -8,24 +8,9 @@ int main(void){
 
     login();
 
-    int saque;
-
-    printf("Disponível apenas cédulas de 100, 50, 20, 10 e 5.\n");
-
-    do{
-        printf("Digite o valor de saque: ");
-        scanf("%d", &saque);
-        if(saque < 5){
-            printf("Valor solicitado inválido.\n");
-        }
-    }while(saque < 5);
-    
-
-    cedulas(saque);
-
     while(getchar() != '\n');
     getchar();
-    return 0;
+    return 1;
 }
 
 void menu(void){
@@ -34,26 +19,27 @@ void menu(void){
 
 void login(void){
     const int pin = 1234;
-    int senha, i;
+    int senha, i, ttvs = 2;
 
-    printf("Digite sua senha: ");
-    scanf("%d", &senha);
+    do{
+        printf("Digite sua senha: ");
+        scanf("%d", &senha);
 
-    for(i = 0; i < 3; i++){
-        int ttvs = 2;
         if(senha == pin){
             menu();
+            break;
         }
-        else if(i = 3){
+        else if(i == 3){
             printf("Operação encerrada, excedeu limite de tentativas.");
         }
         else{
             printf("Senha incorreta, %d tentativa%s restante%s.\n", ttvs, ttvs == 1 ? "" : "s", ttvs == 1 ? "" : "s");
-            ttvs--;
         }
-    }
-}
 
+        ttvs--;
+        i++;
+    }while(i < 3);
+}
 
 int cedulas(int valor){
     int notas[5] = {100, 50, 20, 10, 5};
