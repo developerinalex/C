@@ -1,11 +1,11 @@
 #include <stdio.h>
 
-int cedulas(int valor);
+int sacar(int valor);
 void login(void);
 void menu(void);
+void saldo(void);
 
 int main(void){
-    menu();
     login();
 
     while(getchar() != '\n');
@@ -14,10 +14,37 @@ int main(void){
 }
 
 void menu(void){
+    int seletor = 0;
+    int *pSeletor = &seletor;
+
     puts("Bem-vindo ao caixa elerônico 2.0!");
     puts("==================================\n");
     printf("1. Sacar.\n2. Ver saldo.\n3. Ver extrato.\n4. Sair.\n");
     printf("Digite sua opção: ");
+    scanf("%d", pSeletor);
+
+    switch(*pSeletor){
+        case 1: 
+            int valor = 0;
+            printf("Digite um valor: ");
+            scanf("%d", &valor);
+
+            sacar(valor);
+            break;
+        case 2:
+            saldo();
+            break;
+        case 3:
+    }
+}
+
+void saldo(void){
+    float sld = 1000;
+    printf("Seu saldo é de: %f\n", sld);
+    puts("Pressione enter para voltar ao menu.");
+
+    getchar();
+    menu();
 }
 
 void login(void){
@@ -45,7 +72,7 @@ void login(void){
     printf("Operação encerrada, excedeu limite de tentativas.");
 }
 
-int cedulas(int valor){
+int sacar(int valor){
     int notas[5] = {100, 50, 20, 10, 5};
     int i = 0;
     
