@@ -4,13 +4,18 @@ int sacar(int valor);
 void login(void);
 void menu(void);
 void saldo(void);
+void extrato(void);
+void sair(void);
+
+int sld = 1000;
+int valor = 0;
 
 int main(void){
     login();
 
     while(getchar() != '\n');
     getchar();
-    return 1;
+    return 0;
 }
 
 void menu(void){
@@ -23,27 +28,57 @@ void menu(void){
     printf("Digite sua opção: ");
     scanf("%d", pSeletor);
 
-    switch(*pSeletor){
-        case 1: 
-            int valor = 0;
-            printf("Digite um valor: ");
-            scanf("%d", &valor);
+    system("clear");
 
-            sacar(valor);
+    switch(*pSeletor){
+        case 1:
+            int *pValor = &valor;
+            
+            do{
+                printf("Digite uma quantia válida: ");
+                scanf("%d", pValor);
+            }while(pValor < 5);
+
+            sacar(*pValor);
             break;
         case 2:
             saldo();
             break;
         case 3:
+            extrato();
+            break;
+        case 4:
+            sair();
+            break;
     }
 }
 
+void sair(void){
+    return;
+}
+
+void extrato(void){
+    int saldoAnterior = sld + valor;
+
+    printf("Saldo disponível: R$%d\n", sld);
+    printf("Saldo anterior: R$%d\n", saldoAnterior);
+    printf("Valor retirado: R$%d\n\n", valor);
+
+    puts("Press enter.");
+
+    while(getchar() != '\n');
+    getchar();
+    system("clear");
+}
+
 void saldo(void){
-    float sld = 1000;
-    printf("Seu saldo é de: %f\n", sld);
+    printf("Seu saldo é de: R$%d\n", sld);
     puts("Pressione enter para voltar ao menu.");
 
+    while(getchar() != '\n');
     getchar();
+
+    system("clear");
     menu();
 }
 
@@ -57,6 +92,7 @@ void login(void){
         while(getchar() != '\n');
 
         if(senha == pin){
+            system("clear");
             menu();
             return;
         }
@@ -70,12 +106,18 @@ void login(void){
     }while(i < 3);
 
     printf("Operação encerrada, excedeu limite de tentativas.");
+
+    while(getchar() != '\n');
+    getchar();
+    system("clear");
 }
 
 int sacar(int valor){
     int notas[5] = {100, 50, 20, 10, 5};
     int i = 0;
     
+    int *pSld = &sld;
+
     for(i = 0; i < 5; i++){
         int qtd = valor / notas[i];
         if(qtd > 0){
@@ -87,5 +129,6 @@ int sacar(int valor){
         }
     }
 
+    *pSld -= valor;
     return valor;
 }
