@@ -23,7 +23,7 @@ void menu(void){
     int *pSeletor = &seletor;
 
     puts("Bem-vindo ao caixa elerônico 2.0!");
-    puts("==================================\n");
+    puts("===================================\n");
     printf("1. Sacar.\n2. Ver saldo.\n3. Ver extrato.\n4. Sair.\n");
     printf("Digite sua opção: ");
     scanf("%d", pSeletor);
