@@ -7,14 +7,12 @@ void saldo(void);
 void extrato(void);
 void sair(void);
 
-int sld = 1000;
+int sld = 1000.0;
 int valor = 0;
 
 int main(void){
     login();
 
-    while(getchar() != '\n');
-    getchar();
     return 0;
 }
 
@@ -28,8 +26,6 @@ void menu(void){
     printf("Digite sua opção: ");
     scanf("%d", pSeletor);
 
-    system("clear");
-
     switch(*pSeletor){
         case 1:
             int *pValor = &valor;
@@ -37,7 +33,7 @@ void menu(void){
             do{
                 printf("Digite uma quantia válida: ");
                 scanf("%d", pValor);
-            }while(pValor < 5);
+            }while(*pValor < 5);
 
             sacar(*pValor);
             break;
@@ -57,20 +53,6 @@ void sair(void){
     return;
 }
 
-void extrato(void){
-    int saldoAnterior = sld + valor;
-
-    printf("Saldo disponível: R$%d\n", sld);
-    printf("Saldo anterior: R$%d\n", saldoAnterior);
-    printf("Valor retirado: R$%d\n\n", valor);
-
-    puts("Press enter.");
-
-    while(getchar() != '\n');
-    getchar();
-    system("clear");
-}
-
 void saldo(void){
     printf("Seu saldo é de: R$%d\n", sld);
     puts("Pressione enter para voltar ao menu.");
@@ -78,7 +60,6 @@ void saldo(void){
     while(getchar() != '\n');
     getchar();
 
-    system("clear");
     menu();
 }
 
@@ -92,7 +73,6 @@ void login(void){
         while(getchar() != '\n');
 
         if(senha == pin){
-            system("clear");
             menu();
             return;
         }
@@ -109,14 +89,13 @@ void login(void){
 
     while(getchar() != '\n');
     getchar();
-    system("clear");
 }
 
 int sacar(int valor){
     int notas[5] = {100, 50, 20, 10, 5};
     int i = 0;
-    
-    int *pSld = &sld;
+
+    sld -= valor;
 
     for(i = 0; i < 5; i++){
         int qtd = valor / notas[i];
@@ -129,6 +108,31 @@ int sacar(int valor){
         }
     }
 
-    *pSld -= valor;
+    printf("1. Encerrar programa.\n2. Exibir extrato.\n");
+    scanf("%d", &i);
+
+    if(i == 1){
+        sair();
+    }
+
+    if(i == 2){
+        extrato();
+    }
+
     return valor;
+}
+
+void extrato(void){
+    int saldoAnterior = sld + valor;
+
+    printf("Saldo disponível: R$%d\n", sld);
+    printf("Saldo anterior: R$%d\n", saldoAnterior);
+    printf("Valor retirado: R$%d\n\n", valor);
+
+    puts("Press enter.");
+
+    while(getchar() != '\n');
+    getchar();
+
+    sair();
 }
