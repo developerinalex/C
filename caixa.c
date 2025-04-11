@@ -9,6 +9,7 @@ void sair(void);
 
 int sld = 1000.0;
 int valor = 0;
+int seletor = 0;
 
 int main(void){
     login();
@@ -17,13 +18,12 @@ int main(void){
 }
 
 void menu(void){
-    int seletor = 0;
     int *pSeletor = &seletor;
 
     puts("Bem-vindo ao caixa elerônico 2.0!");
     puts("==================================\n");
     printf("1. Sacar.\n2. Ver saldo.\n3. Ver extrato.\n4. Sair.\n");
-    printf("Digite sua opção: ");
+    printf("\nDigite sua opção: ");
     scanf("%d", pSeletor);
 
     switch(*pSeletor){
@@ -55,12 +55,25 @@ void sair(void){
 
 void saldo(void){
     printf("Seu saldo é de: R$%d\n", sld);
-    puts("Pressione enter para voltar ao menu.");
+    puts("1. Sacar\n2. Encerrar programa.");
 
-    while(getchar() != '\n');
-    getchar();
+    scanf("%d", &seletor);
 
-    menu();
+    switch(seletor){
+        case 1:
+            int *pValor = &valor;
+            
+            do{
+                printf("Digite uma quantia válida: ");
+                scanf("%d", pValor);
+            }while(*pValor < 5);
+
+            sacar(*pValor);
+            break;
+        case 2:
+            sair();
+            break;
+    }
 }
 
 void login(void){
@@ -129,7 +142,16 @@ void extrato(void){
     printf("Saldo anterior: R$%d\n", saldoAnterior);
     printf("Valor retirado: R$%d\n\n", valor);
 
-    puts("Press enter.");
+    puts("1. Voltar ao menu.\n2. Encerrar operação.");
+    scanf("%d", &seletor);
+
+    if(seletor == 1){
+        menu();
+    }
+
+    if(seletor == 2){
+        sair();
+    }
 
     while(getchar() != '\n');
     getchar();
