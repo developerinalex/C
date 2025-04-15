@@ -44,7 +44,7 @@ void troco(void){
     valorT = valorP - valorD;
 
     if(valorT > 0){
-        printf("Seu troco é de R$%d.", valorT);
+        printf("Seu troco é de R$%d.\n", valorT);
         contador();
     }
     else{
@@ -53,14 +53,14 @@ void troco(void){
 }
 
 void contador(void){
-    int resultado = valorT, i = 0, cedulas[7] = {100, 50, 20, 10, 5, 2, 1};
+    int resultado = valorT, i = 0, cedulas[7] = {100, 50, 20, 10, 5, 2, 1}, qtdNotas = 0;
 
     for(i = 0; i < 7; i++){
-        resultado /= cedulas[i];
-        if(resultado > 0){
-            printf("%d nota%s de R$%d fo%s usada%s.\n", resultado, resultado == 1 ? "" : "s", cedulas[i], resultado == 1 ? "i" : "ram", resultado == 1 ? "" : "s");
+        qtdNotas = resultado / cedulas[i];
+        if(qtdNotas > 0){
+            printf("%d nota%s de R$%d fo%s usada%s.\n", qtdNotas, qtdNotas == 1 ? "" : "s", cedulas[i], qtdNotas == 1 ? "i" : "ram", qtdNotas == 1 ? "" : "s");
+            resultado %= cedulas[i];
         }
-        resultado %= cedulas[i];
         if(resultado == 0){
             break;
         }
