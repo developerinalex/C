@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include "troco.h"
 
+int valorD = 0, valorP = 0, valorT = 0; 
+
 void troco(void){
-    int valorD = 0, valorP = 0, valorT = 0, ttvs = 2;
+    int ttvs = 2;
 
     printf("Qual o total do seu débito? Digite aqui (valor mínimo = R$1): ");
     do{
@@ -23,7 +25,7 @@ void troco(void){
 
     ttvs = 2;
     printf("Valor de pagamento: ");
-    
+
     do{
         scanf("%d", &valorP);
         if(valorP < valorD){
@@ -36,12 +38,31 @@ void troco(void){
                 return;
             }
         }
-        else{
-            valorT = valorP - valorD;
-        }
-
         ttvs--;
     }while(valorP < valorD);
 
-    printf("Seu troco é de R$%d.", valorT);
+    valorT = valorP - valorD;
+
+    if(valorT > 0){
+        printf("Seu troco é de R$%d.", valorT);
+        contador();
+    }
+    else{
+        puts("Não há troco.");   
+    }
+}
+
+void contador(void){
+    int resultado = valorT, i = 0, cedulas[7] = {100, 50, 20, 10, 5, 2, 1};
+
+    for(i = 0; i < 7; i++){
+        resultado /= cedulas[i];
+        if(resultado > 0){
+            printf("%d nota%s de R$%d fo%s usada%s.\n", resultado, resultado == 1 ? "" : "s", cedulas[i], resultado == 1 ? "i" : "ram", resultado == 1 ? "" : "s");
+        }
+        resultado %= cedulas[i];
+        if(resultado == 0){
+            break;
+        }
+    }
 }
