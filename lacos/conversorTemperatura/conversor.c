@@ -4,8 +4,5 @@
 int main(void){
     menu();
 
-    while(getchar() != '\n');
-    getchar();
-
     return 0;
 }
