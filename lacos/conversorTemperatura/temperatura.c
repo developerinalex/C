@@ -10,6 +10,11 @@ void menu(void){
         printf("1. Celsius para Fahrenheit.\n2. Fahrenheit para Celsius.\n3. Sair.\n");
         scanf("%d", &seletor);
 
+        while(scanf("%d", &seletor) != 1){
+            puts("Opção inválida, digite um número inteiro.");
+            limparBuffer();
+        }
+
         switch(seletor){
             case 1:
                 celsiusF();
