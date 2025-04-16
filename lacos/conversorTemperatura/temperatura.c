@@ -4,21 +4,28 @@
 void menu(void){
     int seletor = 0;
 
-    puts("bem-vindo ao conversor de temperatura. O que você deseja fazer?");
-    printf("1. Celsius para Fahrenheit.\n2. Fahrenheit para Celsius.\n3. Sair.\n");
-    scanf("%d", &seletor);
+    puts("Bem-vindo ao conversor de temperatura. O que você deseja fazer?");
 
-    switch(seletor){
-        case 1:
-            celsiusF();
-            break;
-        case 2:
-            fahrenheitC();
-            break;
-        case 3:
-            return;
-            break;
-    }
+    do{
+        printf("1. Celsius para Fahrenheit.\n2. Fahrenheit para Celsius.\n3. Sair.\n");
+        scanf("%d", &seletor);
+
+        switch(seletor){
+            case 1:
+                celsiusF();
+                break;
+            case 2:
+                fahrenheitC();
+                break;
+            case 3:
+                printf("\nPrograma encerrado, até a próxima.");
+                return;
+                break;
+            default:
+                printf("Opção inválida, digite algo válido.\n");
+                break;
+        }
+    }while(seletor != 3);
 }
 
 void celsiusF(void){
@@ -31,10 +38,7 @@ void celsiusF(void){
 
     printf("%d°F.\n", grauF);
 
-    while(getchar() != '\n');
-    getchar();
-
-    menu();
+    limparBuffer();
 }
 
 void fahrenheitC(void){
@@ -47,8 +51,10 @@ void fahrenheitC(void){
 
     printf("%d°C.\n", grauC);
 
-    while(getchar() != '\n');
-    getchar();
-    
-    menu();
+    limparBuffer();
+}
+
+void limparBuffer(void){
+    int lixo;
+    while((lixo = getchar()) != '\n' && lixo != EOF);
 }

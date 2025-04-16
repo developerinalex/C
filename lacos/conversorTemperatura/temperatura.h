@@ -4,5 +4,6 @@
 void celsiusF(void);
 void fahrenheitC(void);
 void menu(void);
+void limparBuffer(void);
 
 #endif
