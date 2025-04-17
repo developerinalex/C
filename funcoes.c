@@ -5,15 +5,15 @@ int sld = 1000;
 int valor = 0;
 int seletor = 0;
 
-struct usuario{
+struct usuario{ //simulando um usuario, utilizarei como banco de dados simples 
     const int id;
-    int cpf;
+    int long cpf;
     char nome[100];
 };
 
 typedef struct usuario cliente;
 
-cliente a0001 = {99999, 11100022233, "Exemplo Souza Martins"};
+cliente a0001 = {99999, 11100022233, "Exemplo Souza Martins"}; //cliente 0, existe só para testes
 
 void menu(void){
     int *pSeletor = &seletor;
