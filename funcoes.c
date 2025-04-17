@@ -5,6 +5,16 @@ int sld = 1000;
 int valor = 0;
 int seletor = 0;
 
+struct usuario{
+    const int id;
+    int cpf;
+    char nome[100];
+};
+
+typedef struct usuario cliente;
+
+cliente a0001 = {99999, 11100022233, "Exemplo Souza Martins"};
+
 void menu(void){
     int *pSeletor = &seletor;
 
