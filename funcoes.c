@@ -9,11 +9,13 @@ struct usuario{ //simulando um usuario, utilizarei como banco de dados simples
     const int id;
     int long cpf;
     char nome[100];
+    float saldo;
+    const int senha;
 };
 
 typedef struct usuario cliente;
 
-cliente a0001 = {99999, 11100022233, "Exemplo Souza Martins"}; //cliente 0, existe só para testes
+cliente a1 = {1, 100, "Exemplo", 1000, 1234}; //cliente 0, existe só para testes
 
 void menu(void){
     int *pSeletor = &seletor;
