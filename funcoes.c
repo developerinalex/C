@@ -77,7 +77,7 @@ void saldo(void){
 }
 
 void login(void){
-    const int pin = 1234;
+    const int *pin = &a1.senha;
     int senha, i = 0, ttvs = 2;
 
     do{
