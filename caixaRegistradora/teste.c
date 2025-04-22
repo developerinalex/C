@@ -15,5 +15,5 @@ int main(void){
 int arquivoTxt(void){
     FILE *arquivo = fopen("exemplo.txt", "r");
 
-    printf("%p", arquivo);
+    printf("%d", arquivo);
 }
