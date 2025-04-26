@@ -1,11 +1,19 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int arquivoTxt(void);
 
 int main(void){
     //só testando a chamada de arquivo txt
 
-    arquivoTxt();
+    FILE *arquivo = fopen("number.txt", "r");
+
+    int x;
+
+    fscanf(arquivo, "%i", &x);
+    printf("%i\n", x);
+
+    fclose(arquivo);
 
     getchar();
     return 0;
@@ -13,7 +21,5 @@ int main(void){
 }
 
 int arquivoTxt(void){
-    FILE *arquivo = fopen("exemplo.txt", "r");
-
-    printf("%", arquivo);
+    
 }
