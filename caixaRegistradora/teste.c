@@ -3,15 +3,23 @@
 
 int arquivoTxt(void);
 
+struct tipo{
+    char nome[15];
+    int idade;
+    int id;
+};
+
 int main(void){
     //só testando a chamada de arquivo txt
 
+    struct tipo t;
+
     FILE *arquivo = fopen("number.txt", "r");
 
-    int x;
+    fgets(t.nome, 15, arquivo);
 
-    fscanf(arquivo, "%i", &x);
-    printf("%i\n", x);
+    fscanf(arquivo, "%14s, %i, %i", t.nome, &t.idade, &t.id);
+    printf("%s, %i, %i\n", t.nome, t.idade, t.id);
 
     fclose(arquivo);
 
