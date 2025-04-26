@@ -18,8 +18,9 @@ int main(void){
 
     fgets(t.nome, 15, arquivo);
 
-    fscanf(arquivo, "%14s, %i, %i", t.nome, &t.idade, &t.id);
-    printf("%s, %i, %i\n", t.nome, t.idade, t.id);
+    fscanf(arquivo, "%i, %i", &t.idade, &t.id);
+ 
+    printf("%s\n%i\n%i\n", t.nome, t.idade, t.id);
 
     fclose(arquivo);
 
