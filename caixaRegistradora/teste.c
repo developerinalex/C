@@ -20,7 +20,7 @@ int main(void){
 
     fscanf(arquivo, "%i %i", &t.idade, &t.id);
  
-    printf("%s\n%i\n%i\n", t.nome, t.idade, t.id);
+    printf("%s%i\n%i\n", t.nome, t.idade, t.id);
 
     fclose(arquivo);
 

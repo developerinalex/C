@@ -15,8 +15,6 @@ struct usuario{ //simulando um usuario, utilizarei como banco de dados simples
 
 typedef struct usuario cliente;
 
-cliente a1 = {1, 100, "Exemplo", 1000, 1234}; //cliente 0, existe só para testes
-
 void menu(void){
     int *pSeletor = &seletor;
 
@@ -77,7 +75,7 @@ void saldo(void){
 }
 
 void login(void){
-    const int *pin = &a1.senha;
+    const int *pin = 0;
     int senha, i = 0, ttvs = 2;
 
     do{
