@@ -6,7 +6,7 @@ int arquivoTxt(void);
 struct tipo{
     char nome[15];
     int idade;
-    int id;
+    int sld;
 };
 
 int main(void){
@@ -18,9 +18,9 @@ int main(void){
 
     fgets(t.nome, 15, arquivo);
 
-    fscanf(arquivo, "%i %i", &t.idade, &t.id);
+    fscanf(arquivo, "%i %i", &t.idade, &t.sld);
  
-    printf("%s%i\n%i\n", t.nome, t.idade, t.id);
+    printf("Nome: %sIdade: %i\nSaldo: %i\n", t.nome, t.idade, t.sld);
 
     fclose(arquivo);
 
