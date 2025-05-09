@@ -4,7 +4,7 @@
 int arquivoTxt(void);
 
 struct tipo{
-    char nome[15];
+    char nome[100];
     int idade;
     int sld;
 };
@@ -16,7 +16,7 @@ int main(void){
 
     FILE *arquivo = fopen("number.txt", "r");
 
-    fgets(t.nome, 15, arquivo);
+    fgets(t.nome, 100, arquivo);
 
     fscanf(arquivo, "%i %i", &t.idade, &t.sld);
  
