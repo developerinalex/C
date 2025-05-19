@@ -5,7 +5,7 @@ int sld = 1000;
 int valor = 0;
 int seletor = 0;
 
-struct usuario{ //simulando um usuario, utilizarei como banco de dados simples 
+struct usuario{ //simulando um usuario, utilizarei como banco de dados simples
     const int id;
     int long cpf;
     char nome[100];
@@ -27,7 +27,7 @@ void menu(void){
     switch(*pSeletor){
         case 1:
             int *pValor = &valor;
-            
+
             do{
                 printf("Digite uma quantia válida: ");
                 scanf("%d", pValor);
@@ -60,7 +60,7 @@ void saldo(void){
     switch(seletor){
         case 1:
             int *pValor = &valor;
-            
+
             do{
                 printf("Digite uma quantia válida: ");
                 scanf("%d", pValor);
@@ -75,7 +75,13 @@ void saldo(void){
 }
 
 void login(void){
-    const int *pin = 0;
+    FILE *arquivo = fopen("exemplo.txt", "r");
+    if (arquivo == NULL){
+      printf("Erro ao abrir aqruivo!\n");7
+      return 1;
+    }
+
+    const int pin;
     int senha, i = 0, ttvs = 2;
 
     do{
@@ -87,7 +93,7 @@ void login(void){
             menu();
             return;
         }
-        
+
         if(ttvs > 0){
             printf("Senha incorreta, %d tentativa%s restante%s.\n", ttvs, ttvs == 1 ? "" : "s", ttvs == 1 ? "" : "s");
         }
