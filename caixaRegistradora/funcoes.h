@@ -11,6 +11,6 @@ void sair(void);
 extern int sld;
 extern int valor;
 extern int seletor;
-extern struct usuario;
+struct usuario;
 
 #endif

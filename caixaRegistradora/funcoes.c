@@ -75,10 +75,10 @@ void saldo(void){
 }
 
 void login(void){
-    FILE *arquivo = fopen("exemplo.txt", "r");
+    FILE *arquivo = fopen("clientes.txt", "r");
     if (arquivo == NULL){
-      printf("Erro ao abrir aqruivo!\n");7
-      return 1;
+      printf("Erro ao abrir aqruivo!\n");
+      return;
     }
 
     const int pin;
